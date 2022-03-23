@@ -1,0 +1,60 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: gainsboro;
+}
+.container h1,
+.container form {
+    padding: 2rem;
+}
+
+.step {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+}
+
+.step input {
+    border: 0;
+    border-bottom: 1px solid black;
+    padding: .5rem;
+    background: wheat;
+}
+
+.step input:focus {
+    border: 1px solid black;
+    outline: none;
+}
+
+.controls {
+    display: flex;
+    justify-content: space-between;
+}
+
+.controls button {
+    padding: 1rem;
+    border: 0px;
+    cursor: pointer;
+}
+
+.controls button:hover {
+    background-color: beige;
+}
+
+.hidden {
+    display: none;
+}
+
+.active {
+    display: block;
+}
