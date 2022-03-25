@@ -1,8 +1,5 @@
 // multi step form logic
-const proccessFormData = (form, steps, tracker) => {
-    // get index for the last step in the steps array
-    const lastStep = steps.length - 1
-
+const proccessFormData = (form, steps, lastStep, tracker) => {
     // check to see if form element exists
     if(form) {
         // find the step that matches the tracker
@@ -27,8 +24,6 @@ const proccessFormData = (form, steps, tracker) => {
                 step.classList.remove('active')
             }
         })
-
-        console.log(steps)
     }else {
         console.log('form does not yet exist')
     }
@@ -46,12 +41,14 @@ const proccessFormData = (form, steps, tracker) => {
     const data = [];
 
     // get elements from the DOM
-
     // getting form element
     const form = document.querySelector('form')
 
     // getting all steps and converting it into an array
     const steps = Array.from(document.querySelectorAll('.step'))
+
+    // get index for the last step in the steps array
+    const lastStep = steps.length - 1
 
     // getting the next btn
     const next = document.querySelector('#nextBtn')
@@ -60,7 +57,7 @@ const proccessFormData = (form, steps, tracker) => {
     const submit = document.querySelector('#submitBtn')
 
     //logic
-    proccesFormData(form, steps, tracker)
+    proccesFormData(form, steps, lastStep, tracker)
 
     next.addEventListener('click', e => {
         e.preventDefault();
@@ -76,12 +73,10 @@ const proccessFormData = (form, steps, tracker) => {
         
         tracker++;
 
-        proccessFormData(form, steps, tracker)
+        proccessFormData(form, steps, lastStep, tracker)
     })
 
     submit.addEventListener('click', e => {
         e.preventDefault();
-
-        console.log(data)
     })
 })(proccessFormData);
